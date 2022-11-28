@@ -54,10 +54,9 @@ const arr = combineTwoArrays(
 );
 console.log(arr);
 
-function onlyUniques(...args) {
-  const mySet = new Set(args);
-  const arrWithUniqueValues = [...mySet];
-  return arrWithUniqueValues;
+function onlyUniques(...param) {
+  const set = new Set(param);
+  return Array.from(set);
 }
 const uniqueValues = onlyUniques(1, 2, 1, 5, 8, "hello", "world", "hello");
 console.log(uniqueValues);
@@ -104,3 +103,19 @@ function addOnlyNumbers(...args) {
 }
 const result = addOnlyNumbers(1, 5, 6, "cat", "dog", 3);
 console.log(result);
+
+combineTwoArrays = (array1, array2) => {
+  return [...array1, ...array2];
+};
+console.log(combineTwoArrays([1, 2, 3], [4, 5, 6]));
+
+combineAllArrays = (...arrays) => {
+  // let arrayTotal = [];
+  // for (const array of arrays) {
+  //   arrayTotal.push(...array);
+  // }
+  // return arrayTotal;
+  return arrays.flat(1);
+};
+
+console.log(combineAllArrays([1, 2, 3], [4, 4, 6, 7, 8, 9]));

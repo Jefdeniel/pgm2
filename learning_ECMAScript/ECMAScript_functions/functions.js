@@ -1,3 +1,5 @@
+// Using the strign.repeat function
+
 let yell = "woo!";
 
 let party = yell.repeat(20);
@@ -19,3 +21,7 @@ let cat = {
 cat.meow(3);
 cat.purr(5);
 cat.snore(8);
+
+// Setting default function parameters 
+
+ 

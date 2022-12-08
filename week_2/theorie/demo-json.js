@@ -14,6 +14,9 @@ const jsonStr = `
     "date": "15/10/2022"
   }`;
 
+// const jsonSStr = require("./demo.json");
+// console.log(jsonSStr);
+
 //Omzetten naar js object
 const obj = JSON.parse(jsonStr);
 console.log(obj);

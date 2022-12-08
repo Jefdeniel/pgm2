@@ -1,0 +1,13 @@
+
+{
+  "stock": -1.695,
+  "speed": 1.51E-6,
+  "isFemale": true, 
+  "date": null,
+  "names": ["james", "mike", "Stef"],
+  "adress": {
+    "street": "Industrie",
+    "city": "Oudenaarde"
+  },
+  "date": "15/10/2022"
+};

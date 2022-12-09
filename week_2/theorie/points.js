@@ -1,3 +1,5 @@
+// static methods
+
 class Point {
   constructor(x, y) {
     this.x = x;

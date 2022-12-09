@@ -41,6 +41,15 @@ function Laptop(name, resolution, storage, processor) {
     ================================================================================
     `;
   };
+
+  // this.toCLIString = () => {
+  //   return `
+  //   name:\t${this.name}
+  //   Resolution:\t${this.resolution}
+  //   Storage:\t${this.storage}
+  //   Processor:\t${this.processor}
+  //   `;
+  // };
 }
 
 // Hier had ik eerst const maar het moest let zijn, {} was ook niet nodig

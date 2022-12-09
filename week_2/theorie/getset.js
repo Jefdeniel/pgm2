@@ -48,6 +48,5 @@ function User(name, dateOfBirth) {
     },
   });
 }
-
 let user = new User("Philippe", new Date(1984, 12, 12));
 console.log(`Your age is ${user.age}`);

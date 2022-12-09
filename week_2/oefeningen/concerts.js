@@ -19,14 +19,20 @@ function Picture({ small, large = small }) {
 // Beschrijf een artiest via een constructor function Artist. De constructor bevat een parameter, namelijk een object bestaande uit de parameters {name, picture = null, social = null}. De waarde van deze parameters ken je toe aan de corresponderende eigenschappen in de klasse.
 
 // function Artist ({name, picture = null, social = null}) { +> fout
+
+// Dit is het juiste
 function Artist(name) {
   this.name = name;
   this.picture = null;
   this.social = null;
-  // this.picture = picture; => FOUT
-  // this.social = social;  => FOUT
 }
 
+// Dit is wat ik eerst had
+function Artist({ name, picture = null, social = null }) {
+  this.name = name;
+  this.picture = picture;
+  this.social = social;
+}
 // Beschrijf een plaats via een constructor function Place. De constructor bevat een parameter, namelijk een name. De waarde van deze parameters ken je toe aan de corresponderende eigenschappen in de klasse.
 
 function Place({ name }) {

@@ -8,3 +8,5 @@ Promise.race([a(), b(), c(), d()])
   .then((results) => console.log(`done! ${results}`))
   .catch(console.error)
   .finally(() => console.timeEnd("Promise.all"));
+
+// Je hebt ook promise.

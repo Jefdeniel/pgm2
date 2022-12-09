@@ -10,3 +10,5 @@ Promise.all([a(), b(), c(), d()]).then((results) =>
     .catch(console.error)
     .finally(() => console.timeEnd("Promise.all"))
 );
+
+// Je hebt ook promise.

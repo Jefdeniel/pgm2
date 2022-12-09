@@ -22,5 +22,4 @@ function task(message) {
 console.log("Start script...");
 setTimeout(() => task("Downloaded a file"), 1000);
 
-task("Downloaded a file");
 console.log("Done");

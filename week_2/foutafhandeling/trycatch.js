@@ -42,3 +42,5 @@ try {
   console.error(monthName);
   console.log(e.name, e.message);
 }
+
+// Je kan ook custom types errors schrijven

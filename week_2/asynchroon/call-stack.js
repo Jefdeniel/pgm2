@@ -9,7 +9,7 @@ function average(a, b) {
 
 let x = average(10, 20);
 
-// LIFO principe bij trace
+// LIFO principe bij trace...
 
 function task(message) {
   let n = 1000000;
@@ -23,3 +23,5 @@ console.log("Start script...");
 setTimeout(() => task("Downloaded a file"), 1000);
 
 console.log("Done");
+
+// voeg een nieuwe array toe met vijf objecten

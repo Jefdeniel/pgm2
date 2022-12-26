@@ -1,0 +1,49 @@
+/* Als het aantal vrije plaatsen t.o.v. het totaal aantal beschikbare plaatsen kleiner is dan 15% dan is het status danger weergegeven met rode kleurcode.
+Als het aantal vrije plaatsen t.o.v. het totaal aantal beschikbare plaatsen grooter of gelijk aan 15% is en kleiner dan 60% dan is het status warning weergegeven met oranje kleurcode.
+Als het aantal vrije plaatsen t.o.v. het totaal aantal beschikbare plaatsen grooter of gelijk aan 60% dan is het status success weergegeven met groene kleurcode. */
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900&display=swap");
+
+:root {
+  --color-purple: #7e57c5;
+  --color-purple-dark: #412d66;
+  --color-purple-darkest: #201633;
+  --color-green: #5ab946;
+  --color-orange: #f58732;
+  --color-red: #ed0034;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-lightest: #fcfcfc;
+  --color-gray-light: #dfdfdf;
+  --color-gray: #cfcfcf;
+  --spacer: 16px;
+  --font-family-sourcesanspro: "Source Sans Pro", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sourcesanspro);
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 1.42;
+
+  color: var(--color-black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-sourcesanspro);
+
+  font-weight: 900;
+  line-height: 1.42;
+}

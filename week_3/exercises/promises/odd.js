@@ -10,9 +10,10 @@ function isOddNumber(number) {
     } else {
       setTimeout(() => {
         reject(`${number} is even`);
-      }, 1000);
+      }, 2000);
     }
   });
 }
 
 isOddNumber(4);
+

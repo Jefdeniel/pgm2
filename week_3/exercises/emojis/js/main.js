@@ -61,3 +61,4 @@ const EMOJIS_JSON = `./data/emojis.json`;
   };
   app.initialize();
 })();
+

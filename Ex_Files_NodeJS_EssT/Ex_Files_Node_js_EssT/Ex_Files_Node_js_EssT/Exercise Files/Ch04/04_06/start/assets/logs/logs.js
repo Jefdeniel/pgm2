@@ -1,0 +1,1 @@
+const logs = ["important logs"];

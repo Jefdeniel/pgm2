@@ -1,16 +1,19 @@
 const events = require("events");
 
-const emitter = new events.EventEmitter();
+const myEmitter = new events.EventEmitter();
 
-emitter.on("customEvent", (message, user) => {
+myEmitter.on("customEvent", (message, user) => {
   console.log(`${user}: ${message}`);
 });
 
-process.stdin.on("data", data => {
+// myEmitter.emit("customEvent", "Hello World", "computer");
+// myEmitter.emit("customEvent", "That's pretty cool huh?", "jef");
+
+process.stdin.on("data", (data) => {
   const input = data.toString().trim();
   if (input === "exit") {
-    emitter.emit("customEvent", "Goodbye!", "process");
+    myEmitter.emit("customEvent", "Goodbye!", "process");
     process.exit();
   }
-  emitter.emit("customEvent", input, "terminal");
+  myEmitter.emit("customEvent", input, "terminal");
 });

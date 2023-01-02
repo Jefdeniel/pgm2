@@ -1,21 +1,18 @@
 (() => {
-const app = {
+  const app = {
     initialize() {
-    // cache
-    this.cacheElements();
-    // register listeners
-    this.registerListeners();
-    // update UI,
-    this.updateUI();
+      // cache
+      this.cacheElements();
+      // register listeners
+      this.registerListeners();
+      // update UI,
+      this.updateUI();
     },
-  cacheElements() {
-  },
-  registerListeners() {
-  },
-  async updateUI() {
-  },
- };
- app.initialize();
+    cacheElements() {},
+    registerListeners() {},
+    async updateUI() {},
+  };
+  app.initialize();
 })();
 
 // Mogelijke functies om jullie op weg te helpen
@@ -24,7 +21,6 @@ const app = {
 // API
 // fetchData (async)
 // Parameters: URL
- 
 
 // APP
 // getUsers
@@ -44,15 +40,14 @@ async function getCurrentWeather(url) {
   }
 }
 
-const url = "http://api.weatherapi.com/v1/current.json?key=b67bfa3fed5c439aa1883212230201&q=$ghent";
-getCurrentWeather(url).then(data => {
-  return `
-    <h2>Current weather in ${data.location.name}</h2>`
+const url =
+  "http://api.weatherapi.com/v1/current.json?key=b67bfa3fed5c439aa1883212230201&q=$ghent";
+getCurrentWeather(url).then((data) => {
+  // return `
+  //   <h2>Current weather in ${data.location.name}</h2>`;
+  console.log(data);
 });
 
 // getDogToilets
- 
-
 // renderHTMLForUsers
 // renderHTMLForDogToilets
-...

@@ -1,0 +1,8 @@
+.navbar {
+  background-color: var(--color-bg-light);
+}
+
+img.logo {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}

@@ -1,0 +1,3 @@
+{
+  {"location":{"name":"Ghent","region":"","country":"Belgium","lat":51.05,"lon":3.72,"tz_id":"Europe/Brussels","localtime_epoch":1672668237,"localtime":"2023-01-02 15:03"},"current":{"last_updated_epoch":1672668000,"last_updated":"2023-01-02 15:00","temp_c":10.0,"temp_f":50.0,"is_day":1,"condition":{"text":"Light rain shower","icon":"//cdn.weatherapi.com/weather/64x64/day/353.png","code":1240},"wind_mph":11.9,"wind_kph":19.1,"wind_degree":230,"wind_dir":"SW","pressure_mb":1018.0,"pressure_in":30.06,"precip_mm":0.0,"precip_in":0.0,"humidity":82,"cloud":75,"feelslike_c":7.1,"feelslike_f":44.8,"vis_km":10.0,"vis_miles":6.0,"uv":3.0,"gust_mph":18.3,"gust_kph":29.5}}
+}

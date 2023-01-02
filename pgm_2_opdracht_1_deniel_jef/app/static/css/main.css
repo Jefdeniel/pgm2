@@ -14,7 +14,6 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-blue);
-  margin: 0;
 }
 
 h1 {
@@ -22,6 +21,15 @@ h1 {
   font-weight: 700;
   color: var(--color-black);
   background-color: var(--color-blue);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-black);
+  background-color: var(--color-blue);
+  margin: 0;
+  padding: 10px 0;
 }
 
 P {

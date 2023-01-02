@@ -1,6 +1,7 @@
 (() => {
   const app = {
     initialize() {
+      console.log("1. App initialized");
       // cache
       this.cacheElements();
       // register listeners
@@ -8,9 +9,30 @@
       // update UI,
       this.updateUI();
     },
-    cacheElements() {},
+    cacheElements() {
+      console.log("2. Cache elements");
+    },
     registerListeners() {},
-    async updateUI() {},
+    async updateUI() {
+      console.log("3. Update UI");
+      await this.displayCurrentWeather();
+    },
+    async displayCurrentWeather() {
+      try {
+        const response = await fetch(
+          "http://api.weatherapi.com/v1/current.json?key=b67bfa3fed5c439aa1883212230201&q=$ghent"
+        );
+        const data = await response.json();
+        document.querySelector(".weather").innerHTML = `
+          <div class="d-flex align-items-center"> 
+          <p>${data.current.feelslike_c}°C</p>
+          <img src="${data.current.condition.icon}" alt="weather icon" />
+          </div>
+        `;
+      } catch (error) {
+        console.error(`"Error with fetching weather API data: ${error}}"`);
+      }
+    },
   };
   app.initialize();
 })();
@@ -29,24 +51,6 @@
 // getUserRepos
 // getUserFollowers
 // getCurrentWeather
-
-async function getCurrentWeather(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-const url =
-  "http://api.weatherapi.com/v1/current.json?key=b67bfa3fed5c439aa1883212230201&q=$ghent";
-getCurrentWeather(url).then((data) => {
-  // return `
-  //   <h2>Current weather in ${data.location.name}</h2>`;
-  console.log(data);
-});
 
 // getDogToilets
 // renderHTMLForUsers

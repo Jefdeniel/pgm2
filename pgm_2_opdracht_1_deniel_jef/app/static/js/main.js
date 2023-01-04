@@ -68,7 +68,51 @@
 // getUserRepos
 // getUserFollowers
 // getCurrentWeather
-
-// getDogToilets
 // renderHTMLForUsers
-// renderHTMLForDogToilets
+
+async function fetchUsers(event) {
+  // Voorkom dat de form automatisch gaat herladen
+  event.preventDefault();
+
+  // Haal de tekst uit het zoekveld
+  let searchStr = document.getElementById("searchUser").value;
+  console.log(searchStr);
+
+  // maak de API call met de opgegeven zoekterm naar de API van GitHub
+  await fetch(
+    `https://api.github.com/search/users?sort=desc&page=1&per_page=100&q=${searchStr}`
+  )
+    .then(function (response) {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        return "Something went wrong";
+      }
+    })
+    .then(function (data) {
+      if (data !== null) {
+        let results = data.items;
+        let html = "";
+
+        // Loop door de resultaten heen
+        results.forEach((result) => {
+          let username = result.login;
+          let avatar_url = result.avatar_url;
+          html += `
+            <div class="github-users__result">
+              <img class="img-fluid" src="${avatar_url}" alt="avatar" />
+              <p>${username}</p>
+            </div>
+            `;
+        });
+
+        // Voeg de resultaten toe aan de DOM
+        document.querySelector(".github-users__results").innerHTML = html;
+      } else {
+        document.querySelector(".github-users__results").innerHTML = data;
+      }
+    })
+    .catch((error) => {
+      console.log(`There is an error: ${error}`);
+    });
+}

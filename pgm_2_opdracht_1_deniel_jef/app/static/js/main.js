@@ -101,7 +101,7 @@ async function fetchUsers(event) {
           html += `
             <div class="github-users__result">
               <img class="img-fluid" src="${avatar_url}" alt="avatar" />
-              <p>${username}</p>
+              <p class="username">${username}</p>
             </div>
             `;
         });
@@ -116,3 +116,33 @@ async function fetchUsers(event) {
       console.log(`There is an error: ${error}`);
     });
 }
+
+async function getUserRepos() {
+  try {
+    // Get the value of the clicked element
+    const username = document.getElementsByClassName("username").value;
+
+    // Construct the URL for the API request
+    const url = `https://api.github.com/users/${username}/repos?page=1&per_page=50`;
+
+    // Make the GET request to the API
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Generate the HTML
+    const html = data.map((repo) => `<li>${repo.full_name}</li>`).join("");
+
+    // Insert the HTML into the DOM
+    document.getElementById("repos").innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Add click event listeners to all elements with the class name "username"
+const elements = document.getElementsByClassName("username");
+for (const element of elements) {
+  element.addEventListener("click", getUserRepos);
+}
+
+// url die ik nodig heb: https://api.github.com/users/${username}/repos?page=1&per_page=50

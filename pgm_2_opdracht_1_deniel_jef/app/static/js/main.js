@@ -16,6 +16,7 @@
     async updateUI() {
       console.log("3. Update UI");
       await this.displayCurrentWeather();
+      await this.getDogToilets();
     },
     async displayCurrentWeather() {
       try {
@@ -25,12 +26,28 @@
         const data = await response.json();
         document.querySelector(".weather").innerHTML = `
           <div class="d-flex align-items-center"> 
-          <p>${data.current.feelslike_c}°C</p>
+          <p class="m-1">${data.current.feelslike_c}°C</p>
           <img src="${data.current.condition.icon}" alt="weather icon" />
           </div>
         `;
       } catch (error) {
         console.error(`"Error with fetching weather API data: ${error}}"`);
+      }
+    },
+    async getDogToilets() {
+      try {
+        const response = await fetch(
+          "https://data.stad.gent/api/records/1.0/search/?dataset=hondentoilletten-gent&q=&rows=1000&facet=soort&facet=bestaand"
+        );
+        const data = await response.json();
+        document.querySelector(".dogtoilets").innerHTML = `
+        <div class="d-flex align-items-center">
+          <p class="m-2">${data.records.length}</p>
+          <i class="fa-solid fa-dog m-2"></i>
+        </div>
+        `;
+      } catch (error) {
+        console.error(`Error with fetching dogtoilets API data: ${error}`);
       }
     },
   };

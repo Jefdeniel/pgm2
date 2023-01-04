@@ -3,89 +3,89 @@
     "firstName": "Jef",
     "lastName": "De Niel",
     "email": "jefdeniel@icloud.com",
-    "thumbnail": "./media/images/jefdeniel.jpg",
+    "thumbnail": "https://avatars.githubusercontent.com/u/59620278?v=4",
     "motto": "Onmiddelijkheid is de essentie van de fotografie.",
     "portfolio": {
-      "github": "pgm-jefdenie",
-      "linkedin": "jefdeniel"
+      "github": "jefdeniel",
+      "linkedin": "Jef De Niel"
     },
     "isStudent": false,
     "dateOfBirth": "962229600000"
   },
   {
-    "firstName": "Ava",
-    "lastName": "Garcia",
-    "email": "avagarcia@gmail.com",
-    "thumbnail": "./media/images/avagarcia.jpg",
+    "firstName": "Lucille",
+    "lastName": "Van Vooren",
+    "email": "lucille@gmail.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/120332761?v=4",
     "motto": "Every moment is an opportunity for growth.",
     "portfolio": {
-      "github": "agarcia",
-      "linkedin": "avagarcia"
+      "github": "lucillevv",
+      "linkedin": "Lucille Van Vooren"
     },
     "isStudent": true,
     "dateOfBirth": "949820800000"
   },
   {
-    "firstName": "Trevor",
-    "lastName": "Smith",
-    "email": "trevorsmith@outlook.com",
-    "thumbnail": "./media/images/trevorsmith.jpg",
+    "firstName": "Bazille",
+    "lastName": "Vandewalle",
+    "email": "bazille@outlook.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/44090772?v=4",
     "motto": "The best way to predict the future is to create it.",
     "portfolio": {
-      "github": "tsmith",
+      "github": "bazillevdw",
       "linkedin": "trevorsmith"
     },
     "isStudent": false,
     "dateOfBirth": "946210400000"
   },
   {
-    "firstName": "Emily",
-    "lastName": "Parker",
-    "email": "emilyparker@gmail.com",
-    "thumbnail": "./media/images/emilyparker.jpg",
+    "firstName": "Giacomo",
+    "lastName": "Cerquone",
+    "email": "giacomocerqueno@hotmail.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/9303791?v=4",
     "motto": "I am not a product of my circumstances. I am a product of my decisions.",
     "portfolio": {
-      "github": "eparker",
-      "linkedin": "emilyparker"
+      "github": "giacomocerquone",
+      "linkedin": "Giacomo Cerquone"
     },
     "isStudent": false,
     "dateOfBirth": "953863600000"
   },
   {
-    "firstName": "Olivia",
-    "lastName": "Miller",
-    "email": "oliviamiller@icloud.com",
-    "thumbnail": "./media/images/oliviamiller.jpg",
+    "firstName": "Erlan",
+    "lastName": "Lucio",
+    "email": "erlanlucio@work.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/67064886?v=4",
     "motto": "Be the change you wish to see in the world.",
     "portfolio": {
-      "github": "omiller",
-      "linkedin": "oliviamiller"
+      "github": "lucioerlan",
+      "linkedin": "Lucio Oerlan"
     },
     "isStudent": true,
     "dateOfBirth": "953944400000"
   },
   {
-    "firstName": "Jack",
-    "lastName": "Williams",
-    "email": "jackwilliams@outlook.com",
-    "thumbnail": "./media/images/jackwilliams.jpg",
+    "firstName": "Sky",
+    "lastName": "Cooper",
+    "email": "skycooper@icloud.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/106506769?v=4",
     "motto": "The only way to do great work is to love what you do.",
     "portfolio": {
-      "github": "jwilliams",
-      "linkedin": "jackwilliams"
+      "github": "SkyCooper",
+      "linkedin": "Sky Cooper"
     },
     "isStudent": true,
     "dateOfBirth": "946210400000"
   },
   {
-    "firstName": "Ava",
-    "lastName": "Johnson",
+    "firstName": "Foysal",
+    "lastName": "Ahmmed",
     "email": "avajohnson@icloud.com",
-    "thumbnail": "./media/images/avajohnson.jpg",
+    "thumbnail": "https://avatars.githubusercontent.com/u/79983010?v=4",
     "motto": "The best way to predict the future is to create it.",
     "portfolio": {
-      "github": "ajohnson",
-      "linkedin": "avajohnson"
+      "github": "pmfoysal",
+      "linkedin": "Foysal Ahmmed"
     },
     "isStudent": true,
     "dateOfBirth": "953944400000"
@@ -94,37 +94,37 @@
     "firstName": "Stefaan",
     "lastName": "De Vylder",
     "email": "stefaandevylder@gmail.com",
-    "thumbnail": "./media/images/stefaandevylder.jpg",
+    "thumbnail": "https://avatars.githubusercontent.com/u/10358801?v=4",
     "motto": "The best way to predict the future is to create it.",
     "portfolio": {
-      "github": "pgm-stefaandv",
-      "linkedin": "stefaandevylder"
+      "github": "stefaandevylder",
+      "linkedin": "Stefaan De Vylder"
     },
     "isStudent": false,
     "dateOfBirth": "962229600000"
   },
   {
-    "firstName": "Sarah",
-    "lastName": "Van Overmeiren",
-    "email": "sarah123@hotmail.org",
-    "thumbnail": "./media/images/sarahvanovermeiren.jpg",
+    "firstName": "Guilherme ",
+    "lastName": "Lima",
+    "email": "gluillima@gmail.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/31569208?v=4",
     "motto": "I like trains",
     "portfolio": {
-      "github": "pgm-sarahvo",
-      "linkedin": "sarahvanovermeiren"
+      "github": "guilima95",
+      "linkedin": "Guilherme Lima"
     },
     "isStudent": false,
     "dateOfBirth": "962229600000"
   },
   {
-    "firstName": "Thomas",
-    "lastName": "Roels",
-    "email": "thomasroels1@gmail.com",
-    "thumbnail": "./media/images/thomasroels.jpg",
+    "firstName": "Sam",
+    "lastName": "Schlinkert",
+    "email": "samschlinkert@hotmail.com",
+    "thumbnail": "https://avatars.githubusercontent.com/u/4871664?v=4",
     "motto": "I like trains",
     "portfolio": {
-      "github": "pgm-thomasr",
-      "linkedin": "thomasroels"
+      "github": "sts10",
+      "linkedin": "Sam Schlinkert"
     },
     "isStudent": false,
     "dateOfBirth": "962229600000"

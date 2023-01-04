@@ -147,20 +147,61 @@ async function fetchUsers(event) {
 
 // // url die ik nodig heb: https://api.github.com/users/${username}/repos?page=1&per_page=50
 
-const getData = async () => {
+// const getData = async () => {
+//   try {
+//     const response = await fetch(
+//       "http://127.0.0.1:5500/app/static/data/pgm.json",
+//       {}
+//     );
+//     if (response.status === 200) {
+//       const jsonData = await response.json();
+//       console.log(jsonData);
+
+//       jsonData.forEach((element) => {
+//         let firstName = response.firstName;
+//       });
+//     }
+//     throw Error("Something went wrong!");
+//   } catch (error) {
+//     console.log(`Catch: ${error}`);
+//   }
+// };
+
+// getData();
+
+async function generatePgmTeam() {
   try {
     const response = await fetch(
-      "http://127.0.0.1:5500/app/static/data/pgm.json",
-      {}
+      "http://127.0.0.1:5500/app/static/data/pgm.json"
     );
+
     if (response.status === 200) {
-      const jsonData = await response.json();
-      console.log(jsonData);
-      return;
+      const data = await response.json();
+      let html = "";
+
+      data.forEach((result) => {
+        let linkedin = result.portfolio.linkedin;
+        let github = result.portfolio.github;
+        let thumbnail = result.thumbnail;
+        html += `
+            <div class="pgm-team__result">
+              <span class="d-flex flex-row align-items-center">
+                <img class="img-fluid avatar" src="${thumbnail}" alt="avatar" />
+                <p class="ml-3"> ${github} </p>
+              </span>
+                <p class="p-linkedin"> ${linkedin} </p>
+            </div>
+            `;
+      });
+
+      document.querySelector(".pgm-team__results").innerHTML = html;
+    } else {
+      document.querySelector(".pgm-team__results").innerHTML =
+        "Something went wrong";
     }
-    throw Error("Something went wrong!");
   } catch (error) {
-    console.log(`Catch: ${error}`);
+    console.log(`There is an error: ${error}`);
   }
-};
-getData();
+}
+
+generatePgmTeam();

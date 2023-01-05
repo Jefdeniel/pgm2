@@ -122,12 +122,12 @@ async function getUserRepos() {
       const response = await fetch(
         `https://api.github.com/users/${username}/repos?page=1&per_page=50`
       );
-      console.log(response);
 
       let html = "";
       html += `
-        <div class="github-repos__result">
+        <div class="teamDisplay">
           <p class="username">${username}</p>
+          <p class="repo">${response.url}</p>
         </div>
         `;
 

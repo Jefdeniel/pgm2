@@ -58,3 +58,7 @@ P {
 .pgm-team__result {
   border: 1px solid var(--color-bg-light);
 }
+
+.teamDisplay {
+  height: 400px;
+}

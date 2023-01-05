@@ -54,22 +54,6 @@
   app.initialize();
 })();
 
-// Mogelijke functies om jullie op weg te helpen
-// Hier zijn enkele functienamen om jullie een idee te geven hoe je de code structureert.
-
-// API
-// fetchData (async)
-// Parameters: URL
-
-// APP
-// getUsers
-// Parameters: Zoekopdracht (Standaard leeg)
-// getUserDetail
-// getUserRepos
-// getUserFollowers
-// getCurrentWeather
-// renderHTMLForUsers
-
 async function fetchUsers(event) {
   // Voorkom dat de form automatisch gaat herladen
   event.preventDefault();
@@ -117,33 +101,41 @@ async function fetchUsers(event) {
     });
 }
 
-// async function getUserRepos() {
-//   try {
-//     // Get the value of the clicked element
-//     let username = document.getElementsByClassName("username").value;
+function getUserRepos() {
+  let username = document.querySelectorAll(".github__username");
+  console.log(username);
+  username.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      let html = "";
 
-//     // Construct the URL for the API request
-//     const url = `https://api.github.com/users/${username}/repos?page=1&per_page=50`;
+      html += `
+      <div class="row">
+        <div class="col-12">
+        <p>test</p>
+        </div>
+      </div>
+      `;
 
-//     // Make the GET request to the API
-//     const response = await fetch(url);
-//     const data = await response.json();
+      document.querySelector(".repos__results").innerHTML = html;
+    });
+  });
 
-//     // HTML genereren
-//     let html = data.map((repo) => `<li>${repo.full_name}</li>`).join("");
-
-//     // Insert the HTML into the DOM
-//     document.getElementById("repos").innerHTML = html;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// // Add click event listeners to all elements with the class name "username"
-// const elements = document.getElementsByClassName("username");
-// for (const element of elements) {
-//   element.addEventListener("click", getUserRepos);
-// }
+  const getRepo = async () => {
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${username}/repos?page=1&per_page=50`
+      );
+      console.log(response);
+      if (response.status === 200) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+      }
+      throw Error("Something went wrong!");
+    } catch (error) {
+      console.log(`Catch: ${error}`);
+    }
+  };
+}
 
 // // url die ik nodig heb: https://api.github.com/users/${username}/repos?page=1&per_page=50
 
@@ -187,7 +179,7 @@ async function generatePgmTeam() {
             <div class="pgm-team__result">
               <span class="d-flex flex-row align-items-center">
                 <img class="img-fluid avatar" src="${thumbnail}" alt="avatar" />
-                <p class="ml-3"> ${github} </p>
+                <p class="github__username ml-3"> ${github} </p>
               </span>
                 <p class="p-linkedin"> ${linkedin} </p>
             </div>
@@ -195,6 +187,7 @@ async function generatePgmTeam() {
       });
 
       document.querySelector(".pgm-team__results").innerHTML = html;
+      getUserRepos();
     } else {
       document.querySelector(".pgm-team__results").innerHTML =
         "Something went wrong";
@@ -205,3 +198,33 @@ async function generatePgmTeam() {
 }
 
 generatePgmTeam();
+
+// KOPIE FUNCTIE
+// async function getUserRepos() {
+//   try {
+//     // Get the value of the clicked element (username)
+//     // de username haal ik uit het klikken op een foto van een opgezochte gebruiker
+
+//     let username = document.getElementsByClassName("github__username");
+//     username.forEach((user) => {
+//       user.addEventListener("click", (event) => {
+//         console.log(event.innerHTML);
+//       });
+//     });
+//     // Construct the URL for the API request
+//     const url = `https://api.github.com/users/${username}/repos?page=1&per_page=50`;
+
+//     // Make the GET request to the API
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     console.log(data);
+
+//     // HTML genereren
+//     let html = data.map((repo) => `<li>${repo.full_name}</li>`).join("");
+
+//     // Insert the HTML into the DOM
+//     document.getElementsByClassName("repos").innerHTML = html;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }

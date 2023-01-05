@@ -123,6 +123,16 @@ async function getUserRepos() {
         `https://api.github.com/users/${username}/repos?page=1&per_page=50`
       );
       console.log(response);
+
+      let html = "";
+      html += `
+        <div class="github-repos__result">
+          <p class="username">${username}</p>
+        </div>
+        `;
+
+      document.querySelector(".repos__results").innerHTML = html;
+
       if (response.status === 200) {
         const jsonData = await response.json();
         console.log(jsonData);

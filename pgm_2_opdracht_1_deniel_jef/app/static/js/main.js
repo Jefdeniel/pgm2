@@ -114,7 +114,7 @@ async function getUserRepos() {
     let username = document.querySelectorAll(".github__username");
     username.forEach((element) => {
       element.addEventListener("click", (event) => {
-        getRepo(event.target.innerHTML);
+        getRepo(event.target.innerText);
       });
     });
 
@@ -136,30 +136,6 @@ async function getUserRepos() {
 }
 
 getUserRepos();
-
-// // url die ik nodig heb: https://api.github.com/users/${username}/repos?page=1&per_page=50
-
-// const getData = async () => {
-//   try {
-//     const response = await fetch(
-//       "http://127.0.0.1:5500/app/static/data/pgm.json",
-//       {}
-//     );
-//     if (response.status === 200) {
-//       const jsonData = await response.json();
-//       console.log(jsonData);
-
-//       jsonData.forEach((element) => {
-//         let firstName = response.firstName;
-//       });
-//     }
-//     throw Error("Something went wrong!");
-//   } catch (error) {
-//     console.log(`Catch: ${error}`);
-//   }
-// };
-
-// getData();
 
 async function generatePgmTeam() {
   try {
@@ -198,33 +174,3 @@ async function generatePgmTeam() {
 }
 
 generatePgmTeam();
-
-// KOPIE FUNCTIE
-// async function getUserRepos() {
-//   try {
-//     // Get the value of the clicked element (username)
-//     // de username haal ik uit het klikken op een foto van een opgezochte gebruiker
-
-//     let username = document.getElementsByClassName("github__username");
-//     username.forEach((user) => {
-//       user.addEventListener("click", (event) => {
-//         console.log(event.innerHTML);
-//       });
-//     });
-//     // Construct the URL for the API request
-//     const url = `https://api.github.com/users/${username}/repos?page=1&per_page=50`;
-
-//     // Make the GET request to the API
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     console.log(data);
-
-//     // HTML genereren
-//     let html = data.map((repo) => `<li>${repo.full_name}</li>`).join("");
-
-//     // Insert the HTML into the DOM
-//     document.getElementsByClassName("repos").innerHTML = html;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }

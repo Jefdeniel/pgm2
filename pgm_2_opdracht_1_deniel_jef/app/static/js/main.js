@@ -101,27 +101,24 @@ async function fetchUsers(event) {
     });
 }
 
-function getUserRepos() {
-  let username = document.querySelectorAll(".github__username");
-  console.log(username);
-  username.forEach((element) => {
-    element.addEventListener("click", (event) => {
-      let html = "";
+async function getUserRepos() {
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:5500/app/static/data/pgm.json"
+    );
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+    }
 
-      html += `
-      <div class="row">
-        <div class="col-12">
-        <p>test</p>
-        </div>
-      </div>
-      `;
-
-      document.querySelector(".repos__results").innerHTML = html;
+    let username = document.querySelectorAll(".github__username");
+    username.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        getRepo(event.target.innerHTML);
+      });
     });
-  });
 
-  const getRepo = async () => {
-    try {
+    const getRepo = async (username) => {
       const response = await fetch(
         `https://api.github.com/users/${username}/repos?page=1&per_page=50`
       );
@@ -129,13 +126,16 @@ function getUserRepos() {
       if (response.status === 200) {
         const jsonData = await response.json();
         console.log(jsonData);
+      } else {
+        console.log("Something went wrong!");
       }
-      throw Error("Something went wrong!");
-    } catch (error) {
-      console.log(`Catch: ${error}`);
-    }
-  };
+    };
+  } catch (error) {
+    console.log(`There is an error: ${error}`);
+  }
 }
+
+getUserRepos();
 
 // // url die ik nodig heb: https://api.github.com/users/${username}/repos?page=1&per_page=50
 

@@ -130,7 +130,11 @@ async function getUserRepos() {
         // const avatar_url = jsonData.owner.avatar_url;
 
         for (const item of jsonData) {
-          const html_url = item.html_url;
+          const html_url_original = item.html_url;
+          const html_url = html_url_original.replace(
+            /https:\/\/github\.com/,
+            ""
+          );
           const repo_description = item.description ?? "No description";
           const repo_size = item.size;
           const default_branch = item.default_branch;
@@ -143,22 +147,22 @@ async function getUserRepos() {
 
           html += `
             <div class="repo__result">
-              <p class="repo">${html_url}</p>
+              <p class="p-repo__title">${html_url}</p>
               <p class="p-repo__description">${repo_description}</p>
-              <span class="d-flex flex-row">
-                <p class="p-1">${repo_size} KB </p>
-                <i class="fas fa-code-branch"></i>
-                <p class="p-1">${default_branch}</p>
-                <i class="fa-sharp fa-solid fa-scale-balanced"></i>
-                <p class="p-1">${license}</p>
-                <i class="fa-regular fa-shield-check"></i>
-                <p class="p-1">${visibility}</p>
-                <i class="fa-solid fa-code-fork"></i>
-                <p class="p-1">${forks}</p>
-                <i class="fa-solid fa-eye"></i>
-                <p class="p-1">${watchers}</p>
-                <i class="fa-solid fa-exclamation-circle"></i>
-                <p class="p-1">${open_issues}</p>
+              <span class="d-flex flex-row align-items-bottom ">
+                <p class="ml-2">${repo_size} KB </p>
+                <i class="icon fas fa-code-branch"></i>
+                <p class="ml-2">${default_branch}</p>
+                <i class="icon fa-sharp fa-solid fa-scale-balanced"></i>
+                <p class="ml-2">${license}</p>
+                <i class="icon fa-sharp fa-solid fa-scale-balanced"></i>
+                <p class="ml-2">${visibility}</p>
+                <i class="icon fa-solid fa-code-fork"></i>
+                <p class="ml-2">${forks}</p>
+                <i class="icon fa-solid fa-eye"></i>
+                <p class="ml-2">${watchers}</p>
+                <i class="icon fa-solid fa-exclamation-circle"></i>
+                <p class="ml-2">${open_issues}</p>
                 <i href="${link}" target="_blank" class="fa-solid fa-link">link</i>
               </span>
             </div>

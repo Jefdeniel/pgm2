@@ -119,26 +119,56 @@ async function getUserRepos() {
     });
 
     const getRepo = async (username) => {
+      let html = "";
       const response = await fetch(
         `https://api.github.com/users/${username}/repos?page=1&per_page=50`
       );
 
-      let html = "";
-      html += `
-        <div class="teamDisplay">
-          <p class="username">${username}</p>
-          <p class="repo">${response.url}</p>
-        </div>
-        `;
-
-      document.querySelector(".repos__results").innerHTML = html;
-
       if (response.status === 200) {
         const jsonData = await response.json();
         console.log(jsonData);
+        // const avatar_url = jsonData.owner.avatar_url;
+
+        for (const item of jsonData) {
+          const html_url = item.html_url;
+          const repo_description = item.description ?? "No description";
+          const repo_size = item.size;
+          const default_branch = item.default_branch;
+          const license = item.license ?? "No license";
+          const visibility = item.visibility;
+          const forks = item.forks;
+          const watchers = item.watchers;
+          const open_issues = item.open_issues;
+          const link = item.owner.html_url;
+
+          html += `
+            <div class="repo__result">
+              <p class="repo">${html_url}</p>
+              <p class="p-repo__description">${repo_description}</p>
+              <span class="d-flex flex-row">
+                <p class="p-1">${repo_size} KB </p>
+                <i class="fas fa-code-branch"></i>
+                <p class="p-1">${default_branch}</p>
+                <i class="fa-sharp fa-solid fa-scale-balanced"></i>
+                <p class="p-1">${license}</p>
+                <i class="fa-regular fa-shield-check"></i>
+                <p class="p-1">${visibility}</p>
+                <i class="fa-solid fa-code-fork"></i>
+                <p class="p-1">${forks}</p>
+                <i class="fa-solid fa-eye"></i>
+                <p class="p-1">${watchers}</p>
+                <i class="fa-solid fa-exclamation-circle"></i>
+                <p class="p-1">${open_issues}</p>
+                <i href="${link}" target="_blank" class="fa-solid fa-link">link</i>
+              </span>
+            </div>
+            `;
+        }
       } else {
         console.log("Something went wrong!");
       }
+
+      document.querySelector(".repos__results").innerHTML = html;
     };
   } catch (error) {
     console.log(`There is an error: ${error}`);

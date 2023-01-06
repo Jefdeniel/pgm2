@@ -4,6 +4,7 @@
   --color-white: rgb(255, 255, 255);
   --color-black: rgb(0, 0, 0);
   --color-blue: rgb(88, 166, 255);
+  --color-gray: rgb(128, 128, 128);
 }
 /* 
 @font-face {
@@ -44,6 +45,12 @@ P {
   color: var(--color-blue);
 }
 
+.p-repo__description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-gray);
+}
+
 .avatar {
   width: 50px;
   height: 50px;
@@ -61,4 +68,8 @@ P {
 
 .teamDisplay {
   height: 400px;
+}
+
+.repo__result {
+  border: 0.1px solid var(--color-gray);
 }

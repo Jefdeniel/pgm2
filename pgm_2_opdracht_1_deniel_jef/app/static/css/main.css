@@ -66,13 +66,19 @@ P {
   border: 3px solid var(--color-blue);
 }
 
+.avatar__search {
+  width: 100px;
+  height: 100px;
+}
+
 .pgm-team__results {
   border: 1px solid var(--color-bg-light);
 }
 
-.pgm-team__result {
+/* .pgm-team__result {
   border: 1px solid var(--color-bg-light);
-}
+  background-image: url(`${thumbnail}`);
+} */
 
 .teamDisplay {
   height: 400px;
@@ -85,4 +91,9 @@ P {
 .icon {
   margin: 0;
   padding: 0;
+}
+
+.intro {
+  color: var(--color-white);
+  background: none;
 }

@@ -83,8 +83,8 @@ async function fetchUsers(event) {
           let username = result.login;
           let avatar_url = result.avatar_url;
           html += `
-            <div class="github-users__result">
-              <img class="img-fluid" src="${avatar_url}" alt="avatar" />
+            <div class="github-users__result d-flex flex-row m-2">
+              <img class="avatar__search img-fluid" src="${avatar_url}" alt="avatar" />
               <p class="username">${username}</p>
             </div>
             `;
@@ -108,7 +108,7 @@ async function getUserRepos() {
     );
     if (response.status === 200) {
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
     }
 
     let username = document.querySelectorAll(".github__username");
@@ -126,8 +126,7 @@ async function getUserRepos() {
 
       if (response.status === 200) {
         const jsonData = await response.json();
-        console.log(jsonData);
-        // const avatar_url = jsonData.owner.avatar_url;
+        // console.log(jsonData);
 
         for (const item of jsonData) {
           const html_url_original = item.html_url;
@@ -179,8 +178,6 @@ async function getUserRepos() {
   }
 }
 
-getUserRepos();
-
 async function generatePgmTeam() {
   try {
     const response = await fetch(
@@ -218,3 +215,48 @@ async function generatePgmTeam() {
 }
 
 generatePgmTeam();
+
+async function describePgmTeam() {
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:5500/app/static/data/pgm.json"
+    );
+
+    let team = document.querySelectorAll(".github__username");
+    team.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        getTeam(event.target.innerText);
+      });
+    });
+
+    const getTeam = async (team) => {
+      let html = "";
+
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log(data);
+
+        const motto = item.motto;
+        const linkedin = item.portfolio.linkedin;
+        const lecturer = item.lecturer;
+        const thumbnail = item.thumbnail;
+
+        html += `
+            <div class="pgm-team__description">
+              <p class="p-motto"> ${motto} </p>
+              <p class="p-linkedin"> ${linkedin} </p>
+              <p class="p-lecturer"> ${lecturer} </p>
+            </div>
+            `;
+      } else {
+        console.log("Something went wrong!");
+      }
+
+      document.querySelector(".pgm-team__description").innerHTML = html;
+    };
+  } catch (error) {
+    console.log(`There is an error: ${error}`);
+  }
+}
+
+describePgmTeam();

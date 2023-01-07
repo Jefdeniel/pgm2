@@ -55,10 +55,10 @@
 })();
 
 async function fetchUsers(event) {
-  // Voorkom dat de form automatisch gaat herladen
+  // Voorkom dat de form automatisch gaat herladen, want dat willen we niet
   event.preventDefault();
 
-  // Haal de tekst uit het zoekveld
+  // tekst uit zoekveld halen
   let searchStr = document.getElementById("searchUser").value;
   console.log(searchStr);
 
@@ -78,14 +78,14 @@ async function fetchUsers(event) {
         let results = data.items;
         let html = "";
 
-        // Loop door de resultaten heen
+        // door resultaten loopen
         results.forEach((result) => {
           let username = result.login;
           let avatar_url = result.avatar_url;
           html += `
             <div class="github-users__result d-flex flex-row m-2">
               <img class="avatar__search img-fluid" src="${avatar_url}" alt="avatar" />
-              <p class="username">${username}</p>
+              <p class="p__username">${username}</p>
             </div>
             `;
         });
@@ -260,3 +260,72 @@ async function describePgmTeam() {
 }
 
 describePgmTeam();
+
+async function getGithubRepos() {
+  let usernameElements = document.querySelectorAll("p__username");
+  usernameElements.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      getRepo(event.target.getAttribute("data-username"));
+    });
+  });
+
+  const getRepo = async (username) => {
+    let html = "";
+    const response = await fetch(
+      `https://api.github.com/users/${username}/repos?page=1&per_page=50`
+    );
+    console.log(response);
+
+    if (response.status === 200) {
+      const jsonData = await response.json();
+      console.log(jsonData);
+
+      for (const item of jsonData) {
+        const html_url_original = item.html_url;
+        const html_url = html_url_original.replace(/https:\/\/github\.com/, "");
+        const repo_description = item.description ?? "No description";
+        const repo_size = item.size;
+        const default_branch = item.default_branch;
+        const license = item.license ?? "No license";
+        const visibility = item.visibility;
+        const forks = item.forks;
+        const watchers = item.watchers;
+        const open_issues = item.open_issues;
+        const link = item.owner.html_url;
+
+        html += `
+          <div class="repo__result">
+            <p class="p-repo__title">${html_url}</p>
+            <p class="p-repo__description">${repo_description}</p>
+            <span class="d-flex flex-row align-items-bottom ">
+              <p class="ml-2">${repo_size} KB </p>
+              <i class="icon fas fa-code-branch"></i>
+              <p class="ml-2">${default_branch}</p>
+              <i class="icon fa-sharp fa-solid fa-scale-balanced"></i>
+              <p class="ml-2">${license}</p>
+              <i class="icon fa-sharp fa-solid fa-scale-balanced"></i>
+              <p class="ml-2">${visibility}</p>
+              <i class="icon fa-solid fa-code-fork"></i>
+              <p class="ml-2">${forks}</p>
+              <i class="icon fa-solid fa-eye"></i>
+              <p class="ml-2">${watchers}</p>
+              <i class="icon fa-solid fa-exclamation-circle"></i>
+              <p class="ml-2">${open_issues}</p>
+              <a href="${link}" target="_blank" class="fa-solid fa-link">link</a>
+            </span>
+          </div>
+          `;
+      }
+    } else {
+      console.log("Something went wrong!");
+    }
+
+    document.querySelector(".repos__results").innerHTML = html;
+  };
+}
+
+getGithubRepos();
+
+// Geen idee waarom dit niet werkt
+
+// Ik kan de functies op zich meestal maken maar heb moeite met ze op de juiste manier in de const app te steken. Zeker eens vragen aan de docenten.

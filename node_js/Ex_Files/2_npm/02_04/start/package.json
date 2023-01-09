@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index --time 15"
   },
   "keywords": [
     "node",
@@ -15,6 +15,7 @@
   "author": "Eve Porcello",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.6"
+    "minimist": "^1.2.6",
+    "tiny-timer": "^1.6.0"
   }
 }

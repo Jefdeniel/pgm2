@@ -6,13 +6,18 @@ Voor het vak PGM-2 maak ik een webpagina waarin afstudeerprojecten wordt getoond
 
 - pgm-2_opdracht_1_de_niel_jef
   - app
-    - css
-      - main.css
-    - js
-      - data.js
-      - main.js
+    - static
+      - css
+        - header.css
+        - main.css
+      - data
+        - pgm.json
+      - js
+        - main.js
+      - media
+        - images
+      - index.html
     - .gitignore
-    - index.html
     - LICENCE
     - README.md
   - docs
